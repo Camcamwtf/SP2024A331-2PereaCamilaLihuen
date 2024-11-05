@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM de Vehículos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="spinner" class="spinner" style="display: none;"></div>
+    <div id="formulario-lista" class="formulario">
+        <h1>Vehículos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Año de Fabricación</th>
+                    <th>Velocidad Máxima</th>
+                    <th>Cantidad de Puertas</th>
+                    <th>Asientos</th>
+                    <th>Carga</th>
+                    <th>Autonomía</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody id="lista-vehiculos"></tbody>
+        </table><br>
+        <button class="agregar" onclick="agregarElemento()">Agregar Elemento</button>
+    </div>
+
+    <div id="formulario-abm" class="formulario" style="display: none;">
+        <h1 id="titulo-abm">Formulario ABM</h1>
+        <label id="label-id" style="display: none;">ID: <input type="number" id="id" disabled></label>
+        <label>Modelo: <input type="text" id="modelo" required></label>
+        <label>Año de Fabricación: <input type="number" id="anoFabricacion" min="1985" required></label>
+        <label>Velocidad Máxima: <input type="number" id="velMax" min="0" required></label>
+        
+        <div class="tipo-container">
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" onchange="mostrarCamposPorTipo()" style="width: 120px;">
+                <option value="tipo_auto">Auto</option>
+                <option value="tipo_camion">Camión</option>
+            </select>
+        </div>
+        <div class="atributo">
+            <label for="cantidadPuertas">Cantidad de Puertas: </label>
+            <input type="number" id="cantidadPuertas" min="2">
+        </div>
+        <div class="atributo">
+            <label for="asientos">Asientos: </label>
+            <input type="number" id="asientos" min="2">
+        </div>
+        <div class="atributo">
+            <label for="carga">Carga: </label>
+            <input type="number" id="carga" min="0">
+        </div>
+        <div class="atributo">
+            <label for="autonomia">Autonomía: </label>
+            <input type="number" id="autonomia" min="0">
+        </div>
+
+        <button class="aceptar" onclick="aceptarABM()">Aceptar</button>
+        <button class="cancelar" onclick="cancelarABM()">Cancelar</button>
+    </div>
+</body>
+</html>
